@@ -1,0 +1,36 @@
+pipeline:
+  name: First Build Pipeline
+  identifier: First_Build_Pipeline
+  projectIdentifier: goapppipelinedemoproject
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: org.orglevelgithubconnector
+        build: <+input>
+  stages:
+    - stage:
+        name: Build Stage
+        identifier: Build_Stage
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: GoInstallBuildTest
+                  identifier: GoInstallBuildTest
+                  spec:
+                    shell: Sh
+                    command: echo "Harness CI is fast!"
