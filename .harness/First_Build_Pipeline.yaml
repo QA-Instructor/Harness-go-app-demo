@@ -33,4 +33,8 @@ pipeline:
                   identifier: GoInstallBuildTest
                   spec:
                     shell: Sh
-                    command: echo "Harness CI is fast!"
+                    command: |-
+                      echo "Harness CI is fast!"
+                      echo "Build number"
+                      echo <+project.identifier>
+                      echo <+pipeline.sequenceId>
