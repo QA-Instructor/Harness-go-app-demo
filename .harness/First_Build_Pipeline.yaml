@@ -35,6 +35,5 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo "Harness CI is fast!"
-                      echo "Build number"
+                      echo "Build number", <+pipeline.sequenceId>
                       echo <+project.identifier>
-                      echo <+pipeline.sequenceId>
