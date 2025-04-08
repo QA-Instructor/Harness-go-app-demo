@@ -1,0 +1,14 @@
+inputSet:
+  name: main branch input set
+  identifier: main_branch_input_set
+  orgIdentifier: default
+  projectIdentifier: goapppipelinedemoproject
+  pipeline:
+    identifier: First_Build_Pipeline
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
