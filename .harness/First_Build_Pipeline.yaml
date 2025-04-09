@@ -37,3 +37,28 @@ pipeline:
                       echo "Harness CI is fast!"
                       echo "Build number:" <+pipeline.sequenceId>
                       echo "Project Name:" <+project.identifier>
+    - stage:
+        name: Stage 2
+        identifier: Stage_2
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: run step one
+                  identifier: run_step_one
+                  spec:
+                    shell: Sh
+                    command: echi "Hello from step 1 in stage 2"
